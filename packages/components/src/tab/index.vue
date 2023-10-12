@@ -24,12 +24,18 @@
 	</div>
 </template>
 
+<script lang="ts">
+import { defineComponent } from 'vue';
+export default defineComponent({
+	name: 'MTab'
+});
+</script>
+
 <script lang="ts" setup>
 import { defineComponent, ref } from 'vue';
 import 'animate.css';
 
 defineComponent({
-	name: 'MTab',
 	components: {}
 });
 

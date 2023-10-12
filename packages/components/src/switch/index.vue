@@ -40,6 +40,13 @@
 	</div>
 </template>
 
+<script lang="ts">
+import { defineComponent } from 'vue';
+export default defineComponent({
+	name: 'MSwitch'
+});
+</script>
+
 <script lang="ts" setup>
 import { ref, watch, defineComponent } from 'vue';
 import './../../assets/font/iconfont.css';
@@ -50,10 +57,6 @@ let daytime = ref('day-background-daytime');
 let starsActie = ref('stars-daytime');
 let backTime = ref('back-cloud-daytime');
 let whiteTime = ref('white-background-daytime');
-
-defineComponent({
-	name: 'MSwitch'
-});
 
 const props = defineProps({
 	value: {

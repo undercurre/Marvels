@@ -8,12 +8,15 @@ import { onMounted } from 'vue'; import { onMounted } from 'vue'; import { defin
 	</div>
 </template>
 
-<script lang="ts" setup>
-import { defineComponent, defineProps, ref, onMounted } from 'vue';
-
-defineComponent({
+<script lang="ts">
+import { defineComponent } from 'vue';
+export default defineComponent({
 	name: 'MCloud'
 });
+</script>
+
+<script lang="ts" setup>
+import { defineComponent, defineProps, ref, onMounted } from 'vue';
 
 const rain = ref<Array<HTMLElement>>([]);
 

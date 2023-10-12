@@ -1,64 +1,56 @@
 <template>
-    <div class="list-container" :class="classes">
-        <button
-            class="more-button"
-            aria-label="Menu Button"
-            @click="menuHandle"
-        >
-            <div class="menu-icon-wrapper">
-                <div class="menu-icon-line half first"></div>
-                <div class="menu-icon-line"></div>
-                <div class="menu-icon-line half last"></div>
-            </div>
-        </button>
-        <ul
-            class="more-button-list"
-            :style="{
-                height: 39.5 * menu.length + 12 + 'px',
-                top: -1 * 39.5 * menu.length - 12 + 'px',
-            }"
-        >
-            <li
-                v-for="item in menu"
-                :key="item.text"
-                class="more-button-list-item"
-            >
-                <icon
-                    :name="item.iconName"
-                    color="#1c3991"
-                    size="22"
-                    flip="Vertical"
-                    :rotate="0"
-                ></icon>
-                <span>{{ item.text }}</span>
-            </li>
-        </ul>
-    </div>
+	<div class="list-container" :class="classes">
+		<button class="more-button" aria-label="Menu Button" @click="menuHandle">
+			<div class="menu-icon-wrapper">
+				<div class="menu-icon-line half first"></div>
+				<div class="menu-icon-line"></div>
+				<div class="menu-icon-line half last"></div>
+			</div>
+		</button>
+		<ul
+			class="more-button-list"
+			:style="{
+				height: 39.5 * menu.length + 12 + 'px',
+				top: -1 * 39.5 * menu.length - 12 + 'px'
+			}"
+		>
+			<li v-for="item in menu" :key="item.text" class="more-button-list-item">
+				<icon :name="item.iconName" color="#1c3991" size="22" flip="Vertical" :rotate="0"></icon>
+				<span>{{ item.text }}</span>
+			</li>
+		</ul>
+	</div>
 </template>
+
+<script lang="ts">
+import { defineComponent } from 'vue';
+export default defineComponent({
+	name: 'MFloat'
+});
+</script>
 
 <script lang="ts" setup>
 import { defineComponent, defineProps, computed, ref } from 'vue';
 import Icon from '../icon';
 defineComponent({
-    name: 'MFloat',
-    components: {
-        Icon,
-    },
+	components: {
+		Icon
+	}
 });
 defineProps({
-    menu: Array<{
-        iconName: string;
-        text: string;
-    }>,
+	menu: Array<{
+		iconName: string;
+		text: string;
+	}>
 });
 const expand = ref(false);
 const classes = computed(() => {
-    return {
-        active: expand.value,
-    };
+	return {
+		active: expand.value
+	};
 });
 function menuHandle() {
-    expand.value = !expand.value;
+	expand.value = !expand.value;
 }
 </script>
 
@@ -72,194 +64,194 @@ $text-color-hover: #5c67ff;
 $menu-icon-transition: transform 300ms cubic-bezier(0.52, -0.8, 0.52, 0.52);
 
 .list-container {
-    position: relative;
+	position: relative;
 
-    &.active {
-        .more-button-list {
-            position: absolute;
-            left: -120px;
-            top: -170px;
-            opacity: 1;
-            transform: scale(1);
-        }
+	&.active {
+		.more-button-list {
+			position: absolute;
+			left: -120px;
+			top: -170px;
+			opacity: 1;
+			transform: scale(1);
+		}
 
-        .more-button-list-item {
-            animation: fadeInItem 0.6s 0.2s forwards;
+		.more-button-list-item {
+			animation: fadeInItem 0.6s 0.2s forwards;
 
-            &:nth-child(2) {
-                animation-delay: 0.4s;
-            }
-            &:nth-child(3) {
-                animation-delay: 0.6s;
-            }
-            &:nth-child(4) {
-                animation-delay: 0.8s;
-            }
-        }
+			&:nth-child(2) {
+				animation-delay: 0.4s;
+			}
+			&:nth-child(3) {
+				animation-delay: 0.6s;
+			}
+			&:nth-child(4) {
+				animation-delay: 0.8s;
+			}
+		}
 
-        .more-button {
-            animation: onePulse 0.6s forwards linear;
-        }
+		.more-button {
+			animation: onePulse 0.6s forwards linear;
+		}
 
-        .menu-icon-wrapper {
-            transform: rotate(-45deg);
-        }
+		.menu-icon-wrapper {
+			transform: rotate(-45deg);
+		}
 
-        .menu-icon-line {
-            &.first {
-                transform: rotate(-90deg) translateX(1px);
-            }
+		.menu-icon-line {
+			&.first {
+				transform: rotate(-90deg) translateX(1px);
+			}
 
-            &.last {
-                transform: rotate(-90deg) translateX(-1px);
-            }
-        }
-    }
+			&.last {
+				transform: rotate(-90deg) translateX(-1px);
+			}
+		}
+	}
 }
 
 .more-button {
-    background-color: $button-bg;
-    box-shadow: 0px 0px 0px 4px rgba(92, 103, 255, 0.3);
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    border: none;
-    padding: 0;
-    cursor: pointer;
-    transition: 0.2s ease-in;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #fff;
-    position: relative;
-    z-index: 2;
+	background-color: $button-bg;
+	box-shadow: 0px 0px 0px 4px rgba(92, 103, 255, 0.3);
+	border-radius: 50%;
+	width: 50px;
+	height: 50px;
+	border: none;
+	padding: 0;
+	cursor: pointer;
+	transition: 0.2s ease-in;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: #fff;
+	position: relative;
+	z-index: 2;
 
-    &:hover,
-    &:focus {
-        box-shadow: 0px 0px 0px 8px rgba(92, 103, 255, 0.3);
-        background-color: darken($button-bg, 4%);
-    }
+	&:hover,
+	&:focus {
+		box-shadow: 0px 0px 0px 8px rgba(92, 103, 255, 0.3);
+		background-color: darken($button-bg, 4%);
+	}
 
-    &:focus {
-        outline: 0;
-    }
+	&:focus {
+		outline: 0;
+	}
 
-    &-list {
-        box-sizing: border-box;
-        background-color: $list-bg;
-        border-radius: 8px;
-        list-style-type: none;
-        width: 140px;
-        height: 170px;
-        box-shadow: 0px 0px 4px 4px rgba(150, 157, 249, 0.16);
-        padding: 0;
-        padding: 6px;
-        position: absolute;
-        left: -120px;
-        top: -170px;
-        opacity: 1;
-        transform: scale(0);
-        transform-origin: bottom right;
-        transition: all 0.3s ease 0.1s;
+	&-list {
+		box-sizing: border-box;
+		background-color: $list-bg;
+		border-radius: 8px;
+		list-style-type: none;
+		width: 140px;
+		height: 170px;
+		box-shadow: 0px 0px 4px 4px rgba(150, 157, 249, 0.16);
+		padding: 0;
+		padding: 6px;
+		position: absolute;
+		left: -120px;
+		top: -170px;
+		opacity: 1;
+		transform: scale(0);
+		transform-origin: bottom right;
+		transition: all 0.3s ease 0.1s;
 
-        li {
-            opacity: 0;
-        }
-    }
+		li {
+			opacity: 0;
+		}
+	}
 
-    &-list-item {
-        display: flex;
-        align-items: center;
-        color: $text-color;
-        padding: 10px;
-        border-radius: 4px;
-        cursor: pointer;
-        position: relative;
-        transition: 0.2s ease-in;
-        transform: translateX(-10px);
+	&-list-item {
+		display: flex;
+		align-items: center;
+		color: $text-color;
+		padding: 10px;
+		border-radius: 4px;
+		cursor: pointer;
+		position: relative;
+		transition: 0.2s ease-in;
+		transform: translateX(-10px);
 
-        &:hover {
-            color: $text-color-hover;
-        }
+		&:hover {
+			color: $text-color-hover;
+		}
 
-        &:after {
-            content: '';
-            position: absolute;
-            height: 1px;
-            width: calc(100% - 24px);
-            left: 12px;
-            bottom: 0;
-            background-color: rgba(132, 160, 244, 0.1);
-        }
-        &:last-child:after {
-            display: none;
-        }
+		&:after {
+			content: '';
+			position: absolute;
+			height: 1px;
+			width: calc(100% - 24px);
+			left: 12px;
+			bottom: 0;
+			background-color: rgba(132, 160, 244, 0.1);
+		}
+		&:last-child:after {
+			display: none;
+		}
 
-        svg {
-            width: 18px;
-            height: 18px;
-        }
+		svg {
+			width: 18px;
+			height: 18px;
+		}
 
-        span {
-            display: inline-block;
-            line-height: 20px;
-            font-size: 14px;
-            margin-left: 8px;
-        }
-    }
+		span {
+			display: inline-block;
+			line-height: 20px;
+			font-size: 14px;
+			margin-left: 8px;
+		}
+	}
 }
 
 @keyframes onePulse {
-    0% {
-        box-shadow: 0px 0px 0px 0px rgba(92, 103, 255, 0.3);
-    }
+	0% {
+		box-shadow: 0px 0px 0px 0px rgba(92, 103, 255, 0.3);
+	}
 
-    50% {
-        box-shadow: 0px 0px 0px 12px rgba(92, 103, 255, 0.1);
-    }
+	50% {
+		box-shadow: 0px 0px 0px 12px rgba(92, 103, 255, 0.1);
+	}
 
-    100% {
-        box-shadow: 0px 0px 0px 4px rgba(92, 103, 255, 0.3);
-    }
+	100% {
+		box-shadow: 0px 0px 0px 4px rgba(92, 103, 255, 0.3);
+	}
 }
 
 @keyframes fadeInItem {
-    100% {
-        transform: translateX(0px);
-        opacity: 1;
-    }
+	100% {
+		transform: translateX(0px);
+		opacity: 1;
+	}
 }
 
 .menu-icon-wrapper {
-    border-radius: 2px;
-    width: 20px;
-    height: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    cursor: pointer;
-    transition: transform 330ms ease-out;
+	border-radius: 2px;
+	width: 20px;
+	height: 20px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	cursor: pointer;
+	transition: transform 330ms ease-out;
 }
 
 .menu-icon-line {
-    background-color: #fff;
-    border-radius: 2px;
-    width: 100%;
-    height: 2px;
+	background-color: #fff;
+	border-radius: 2px;
+	width: 100%;
+	height: 2px;
 
-    &.half {
-        width: 50%;
-    }
+	&.half {
+		width: 50%;
+	}
 
-    &.first {
-        transition: $menu-icon-transition;
-        transform-origin: right;
-    }
+	&.first {
+		transition: $menu-icon-transition;
+		transform-origin: right;
+	}
 
-    &.last {
-        align-self: flex-end;
-        transition: $menu-icon-transition;
-        transform-origin: left;
-    }
+	&.last {
+		align-self: flex-end;
+		transition: $menu-icon-transition;
+		transform-origin: left;
+	}
 }
 </style>
