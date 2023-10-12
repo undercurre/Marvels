@@ -1,10 +1,6 @@
-import type { App } from 'vue';
-import MSteps from './index.vue';
+import withInstall from '../../utils/install';
+import _MSteps from './index.vue';
 
-export { MSteps };
+export const MSteps = withInstall(_MSteps);
 
-export default {
-	install(app: App) {
-		app.component('MSteps', MSteps);
-	}
-};
+export default MSteps;

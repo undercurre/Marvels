@@ -1,10 +1,6 @@
-import type { App } from 'vue';
-import MAlert from './index.vue';
+import withInstall from '../../utils/install';
+import _MAlert from './index.vue';
 
-export { MAlert };
+export const MAlert = withInstall(_MAlert);
 
-export default {
-	install(app: App) {
-		app.component('MAlert', MAlert);
-	}
-};
+export default MAlert;

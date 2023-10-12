@@ -1,20 +1,16 @@
 # Button 按钮
 
-<Button type="rainbow" style="margin-right: 10px">rainbow</Button>
+<MButton type="rainbow" style="margin-right: 10px">rainbow</MButton>
 
-<Button type="rainbow" style="margin-right: 10px" :disabled="true">rainbow</Button>
+<MButton type="rainbow" style="margin-right: 10px" :disabled="true">rainbow</MButton>
 
-<Button type="rainbow-shadow" style="margin-right: 10px">rainbow-shadow</Button>
+<MButton type="rainbow-shadow" style="margin-right: 10px">rainbow-shadow</MButton>
 
-<Button type="rainbow-shadow" style="margin-right: 10px" :disabled="true">rainbow-shadow</Button>
+<MButton type="rainbow-shadow" style="margin-right: 10px" :disabled="true">rainbow-shadow</MButton>
 
-<Button type="flow" style="margin-right: 10px">flow</Button>
+<MButton type="flow" style="margin-right: 10px">flow</MButton>
 
-<Button type="flow" style="margin-right: 10px" :disabled="true">flow</Button>
-
-<script setup>
-
-</script>
+<MButton type="flow" style="margin-right: 10px" :disabled="true">flow</MButton>
 
 # API
 

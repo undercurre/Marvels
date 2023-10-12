@@ -1,10 +1,6 @@
-import type { App } from 'vue';
-import MCloud from './index.vue';
+import withInstall from '../../utils/install';
+import _MCloud from './index.vue';
 
-export { MCloud };
+export const MCloud = withInstall(_MCloud);
 
-export default {
-	install(app: App) {
-		app.component('MCloud', MCloud);
-	}
-};
+export default MCloud;

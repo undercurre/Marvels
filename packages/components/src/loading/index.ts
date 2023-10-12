@@ -1,10 +1,6 @@
-import type { App } from 'vue';
-import MLoading from './index.vue';
+import withInstall from '../../utils/install';
+import _MLoading from './index.vue';
 
-export { MLoading };
+export const MLoading = withInstall(_MLoading);
 
-export default {
-	install(app: App) {
-		app.component('MLoading', MLoading);
-	}
-};
+export default MLoading;

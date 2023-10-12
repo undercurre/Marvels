@@ -1,10 +1,6 @@
-import type { App } from 'vue';
-import MDivider from './index.vue';
+import withInstall from '../../utils/install';
+import _MDivider from './index.vue';
 
-export { MDivider };
+export const MDivider = withInstall(_MDivider);
 
-export default {
-	install(app: App) {
-		app.component('MDivider', MDivider);
-	}
-};
+export default MDivider;

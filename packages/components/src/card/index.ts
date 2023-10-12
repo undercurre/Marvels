@@ -1,10 +1,6 @@
-import type { App } from 'vue';
-import MCard from './index.vue';
+import withInstall from '../../utils/install';
+import _MCard from './index.vue';
 
-export { MCard };
+export const MCard = withInstall(_MCard);
 
-export default {
-	install(app: App) {
-		app.component('MCard', MCard);
-	}
-};
+export default MCard;

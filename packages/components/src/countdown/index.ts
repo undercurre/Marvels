@@ -1,10 +1,6 @@
-import type { App } from 'vue';
-import MCountdown from './index.vue';
+import withInstall from '../../utils/install';
+import _MCountdown from './index.vue';
 
-export { MCountdown };
+export const MCountdown = withInstall(_MCountdown);
 
-export default {
-	install(app: App) {
-		app.component('MCountdown', MCountdown);
-	}
-};
+export default MCountdown;

@@ -1,10 +1,6 @@
-import MButton from './index.vue';
-import type { App } from 'vue';
+import withInstall from '../../utils/install';
+import _MButton from './index.vue';
 
-export { MButton };
+export const MButton = withInstall(_MButton);
 
-export default {
-	install(app: App) {
-		app.component('MButton', MButton);
-	}
-};
+export default MButton;

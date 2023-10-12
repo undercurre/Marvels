@@ -1,10 +1,6 @@
-import type { App } from 'vue';
-import MPreLoading from './index.vue';
+import withInstall from '../../utils/install';
+import _MPreLoading from './index.vue';
 
-export { MPreLoading };
+export const MPreLoading = withInstall(_MPreLoading);
 
-export default {
-	install(app: App) {
-		app.component('MPreLoading', MPreLoading);
-	}
-};
+export default MPreLoading;

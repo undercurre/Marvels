@@ -1,10 +1,6 @@
-import type { App } from 'vue';
-import MWaterDroplet from './index.vue';
+import withInstall from '../../utils/install';
+import _MWaterDroplet from './index.vue';
 
-export { MWaterDroplet };
+export const MWaterDroplet = withInstall(_MWaterDroplet);
 
-export default {
-	install(app: App) {
-		app.component('MWaterDroplet', MWaterDroplet);
-	}
-};
+export default MWaterDroplet;

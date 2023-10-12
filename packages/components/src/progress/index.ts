@@ -1,10 +1,6 @@
-import type { App } from 'vue';
-import MProgress from './index.vue';
+import withInstall from '../../utils/install';
+import _MProgress from './index.vue';
 
-export { MProgress };
+export const MProgress = withInstall(_MProgress);
 
-export default {
-	install(app: App) {
-		app.component('MProgress', MProgress);
-	}
-};
+export default MProgress;

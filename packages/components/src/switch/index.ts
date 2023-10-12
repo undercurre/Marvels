@@ -1,10 +1,6 @@
-import type { App } from 'vue';
-import MSwitch from './index.vue';
+import withInstall from '../../utils/install';
+import _MSwitch from './index.vue';
 
-export { MSwitch };
+export const MSwitch = withInstall(_MSwitch);
 
-export default {
-	install(app: App) {
-		app.component('MSwitch', MSwitch);
-	}
-};
+export default MSwitch;

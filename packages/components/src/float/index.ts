@@ -1,10 +1,6 @@
-import type { App } from 'vue';
-import MFloat from './index.vue';
+import withInstall from '../../utils/install';
+import _MFloat from './index.vue';
 
-export { MFloat };
+export const MFloat = withInstall(_MFloat);
 
-export default {
-	install(app: App) {
-		app.component('MFloat', MFloat);
-	}
-};
+export default MFloat;

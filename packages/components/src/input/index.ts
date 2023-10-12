@@ -1,10 +1,6 @@
-import type { App } from 'vue';
-import MInput from './index.vue';
+import withInstall from '../../utils/install';
+import _MInput from './index.vue';
 
-export { MInput };
+export const MInput = withInstall(_MInput);
 
-export default {
-	install(app: App) {
-		app.component('MInput', MInput);
-	}
-};
+export default MInput;

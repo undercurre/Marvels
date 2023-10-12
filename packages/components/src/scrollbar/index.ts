@@ -1,10 +1,6 @@
-import type { App } from 'vue';
-import MScrollbar from './index.vue';
+import withInstall from '../../utils/install';
+import _MScrollbar from './index.vue';
 
-export { MScrollbar };
+export const MScrollbar = withInstall(_MScrollbar);
 
-export default {
-	install(app: App) {
-		app.component('MScrollbar', MScrollbar);
-	}
-};
+export default MScrollbar;

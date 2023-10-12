@@ -1,10 +1,6 @@
-import type { App } from 'vue';
-import MTab from './index.vue';
+import withInstall from '../../utils/install';
+import _MTab from './index.vue';
 
-export { MTab };
+export const MTab = withInstall(_MTab);
 
-export default {
-	install(app: App) {
-		app.component('MTab', MTab);
-	}
-};
+export default MTab;
