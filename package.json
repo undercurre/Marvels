@@ -1,0 +1,65 @@
+{
+	"name": "matrix-ui",
+	"version": "1.1.0",
+	"description": "UI components",
+	"workspaces": [
+		"packages/components/*",
+		"packages/utils/*",
+		"vitepress/*",
+		"examples/*"
+	],
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"eslint": "eslint --ext .js,.vue,.ts --fix .",
+		"prettier": "prettier --write ./*.{ts,tsx,js,jsx,css,less,scss,json,md}",
+		"stylelint": "stylelint ./*.{scss,css} --fix --allow-empty-input",
+		"prepare": "husky install",
+		"commit": "git add . && git-cz",
+		"changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
+		"release": "standard-version"
+	},
+	"keywords": [
+		"UI",
+		"component"
+	],
+	"author": "undercurre",
+	"license": "ISC",
+	"devDependencies": {
+		"@commitlint/config-conventional": "^17.4.2",
+		"@rushstack/eslint-patch": "^1.5.1",
+		"@tsconfig/node18": "^18.2.2",
+		"@vue/eslint-config-prettier": "^8.0.0",
+		"@vue/eslint-config-typescript": "^12.0.0",
+		"@vue/tsconfig": "^0.4.0",
+		"commitizen": "^4.2.6",
+		"commitlint": "^17.4.2",
+		"commitlint-config-cz": "^0.13.3",
+		"conventional-changelog-cli": "^2.2.2",
+		"cz-conventional-changelog": "^3.3.0",
+		"cz-customizable": "^7.0.0",
+		"eslint": "^8.31.0",
+		"eslint-plugin-vue": "^9.9.0",
+		"husky": "^8.0.3",
+		"postcss": "^8.4.31",
+		"postcss-html": "^1.5.0",
+		"postcss-preset-env": "^9.2.0",
+		"postcss-scss": "^4.0.9",
+		"prettier": "^2.8.3",
+		"standard-version": "^9.5.0",
+		"stylelint": "^14.16.1",
+		"stylelint-config-rational-order": "^0.1.2",
+		"stylelint-config-standard-scss": "^11.0.0",
+		"stylelint-order": "^6.0.1",
+		"stylelint-scss": "^4.3.0",
+		"typescript": "^5.2.2",
+		"vue": "^3.2.36"
+	},
+	"config": {
+		"cz-customizable": {
+			"config": ".cz-config.js"
+		},
+		"commitizen": {
+			"path": "node_modules/cz-customizable"
+		}
+	}
+}

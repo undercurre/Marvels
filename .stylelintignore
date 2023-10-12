@@ -1,0 +1,11 @@
+node_modules/*
+examples/node_modules/*
+packages/components/node_modules/*
+packages/utils/node_modules/*
+vitepress/node_modules/*
+
+public
+dist
+es
+lib
+*.d.ts

@@ -1,0 +1,36 @@
+{
+	"name": "@matrix-ui/components",
+	"version": "1.0.1",
+	"description": "",
+	"type": "module",
+	"main": "matrix-ui/lib/components/index.js",
+	"module": "matrix-ui/es/components/index.mjs",
+	"files": [
+		"matrix-ui/es",
+		"matrix-ui/lib"
+	],
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"build": "rimraf matrix-ui && vite build"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"typings": "lib/index.d.ts",
+	"dependencies": {
+		"animate.css": "^4.1.1",
+		"gsap": "^3.12.2"
+	},
+	"devDependencies": {
+		"@iconify/vue": "^4.1.1",
+		"@unocss/preset-attributify": "0.45.4",
+		"@unocss/preset-icons": "0.45.4",
+		"@unocss/preset-uno": "0.45.4",
+		"@vitejs/plugin-vue": "^4.4.0",
+		"rimraf": "^5.0.5",
+		"sass": "^1.68.0",
+		"unocss": "0.45.4",
+		"vite": "^4.4.11",
+		"vite-plugin-dts": "^3.6.0"
+	}
+}
