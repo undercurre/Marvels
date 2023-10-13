@@ -1,5 +1,5 @@
 {
-	"name": "matrix-ui",
+	"name": "marvels-monorepo",
 	"version": "1.1.0",
 	"description": "UI components",
 	"workspaces": [
@@ -52,7 +52,7 @@
 		"stylelint-order": "^6.0.1",
 		"stylelint-scss": "^4.3.0",
 		"typescript": "^5.2.2",
-		"vue": "^3.2.36"
+		"vue": "^3.3.4"
 	},
 	"config": {
 		"cz-customizable": {

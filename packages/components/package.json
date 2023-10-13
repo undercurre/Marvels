@@ -1,17 +1,17 @@
 {
-	"name": "@matrix-ui/components",
+	"name": "marvels",
 	"version": "1.0.1",
 	"description": "",
 	"type": "module",
-	"main": "matrix-ui/lib/components/index.js",
-	"module": "matrix-ui/es/components/index.mjs",
+	"main": "lib/components/index.js",
+	"module": "es/components/index.mjs",
 	"files": [
-		"matrix-ui/es",
-		"matrix-ui/lib"
+		"es",
+		"lib"
 	],
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
-		"build": "rimraf matrix-ui && vite build"
+		"build": "rimraf es && rimraf lib && vite build"
 	},
 	"keywords": [],
 	"author": "",

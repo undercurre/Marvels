@@ -13,7 +13,7 @@ git add .
 git commit -m "Initial commit"
 
 # 添加远程Git存储库
-git remote add origin https://github.com/undercurre/Matrix-UI-Dosc.git
+git remote add origin https://github.com/undercurre/Marvels-Dosc.git
 
 # 推送更改
 git push -u origin master

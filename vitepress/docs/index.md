@@ -1,23 +1,23 @@
 ---
 layout: home
 
-title: Matrix
-titleTemplate: 一个Vue3组件库
+title: Marvels
+titleTemplate: Vue3组件库
 
 hero:
-  name: Matrix
-  text: 一个Vue3组件库
-  tagline: 以简约线性科技风动画为主要特性
+  name: Marvels
+  text: 每个组件都是一个奇迹，让你的应用脱颖而出。
+  tagline:
   image:
     src: /logo.png
-    alt: Matrix
+    alt: Marvels
   actions:
     - theme: brand
       text: 开始
-      link: /button
+      link: /guild/start
     - theme: alt
       text: 在 Github 上查看
-      link: https://github.com/undercurre/Metrix-UI
+      link: https://github.com/undercurre/Marvels
 
 features:
   - icon: 💡
@@ -26,8 +26,7 @@ features:
   - icon: 📦
     title: 仅供学习使用
     details: 倾向于Vue3组件库的学习，请勿用于实际生产项目
-  - icon: 🛠️
-    title: 按需引入
-    details: 直接支持按需引入无需配置任何插件。
-
+  - icon: 🔖
+    title: 持续迭代
+    details: 持续提供多种多样的组件、动画。
 ---

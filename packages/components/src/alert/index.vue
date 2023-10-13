@@ -168,6 +168,102 @@ const closeHandle = (event: MouseEvent) => {
 	background-color: #25ff0b;
 }
 
+.container-info::before {
+	content: '';
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	left: 3px;
+	width: 3px;
+	height: 46%;
+	border-top-right-radius: 8px;
+	border-bottom-right-radius: 8px;
+	background-color: #25ff0b;
+}
+
+.container-info::after {
+	content: '';
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	left: 1px;
+	width: 1px;
+	height: 46%;
+	background-color: #25ff0b;
+}
+
+.container-warning::before {
+	content: '';
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	left: 3px;
+	width: 3px;
+	height: 46%;
+	border-top-right-radius: 8px;
+	border-bottom-right-radius: 8px;
+	background-color: #ffb40b;
+}
+
+.container-warning::after {
+	content: '';
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	left: 1px;
+	width: 1px;
+	height: 46%;
+	background-color: #ffb40b;
+}
+
+.container-error::before {
+	content: '';
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	left: 3px;
+	width: 3px;
+	height: 46%;
+	border-top-right-radius: 8px;
+	border-bottom-right-radius: 8px;
+	background-color: #ff0303;
+}
+
+.container-error::after {
+	content: '';
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	left: 1px;
+	width: 1px;
+	height: 46%;
+	background-color: #ff0303;
+}
+
+.container-like::before {
+	content: '';
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	left: 3px;
+	width: 3px;
+	height: 46%;
+	border-top-right-radius: 8px;
+	border-bottom-right-radius: 8px;
+	background-color: #03d0ff;
+}
+
+.container-like::after {
+	content: '';
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	left: 1px;
+	width: 1px;
+	height: 46%;
+	background-color: #03d0ff;
+}
+
 .left {
 	display: flex;
 	flex: 1;

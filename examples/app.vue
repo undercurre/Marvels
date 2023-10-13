@@ -29,11 +29,11 @@
 			:rotate="0"
 		></MIcon>
 
-		<!-- <MScrollbar :height="100">
+		<MScrollbar :height="100">
 			<ul>
 				<li v-for="i in 100" :key="i">{{ i }}</li>
 			</ul>
-		</MScrollbar> -->
+		</MScrollbar>
 
 		<h2>亲爱的用户<MDivider type="vertical"></MDivider>你好</h2>
 
@@ -96,10 +96,10 @@
 import {
 	MButton,
 	MInput,
+	MAlert,
 	MIcon,
 	MScrollbar,
 	MDivider,
-	MAlert,
 	MTab,
 	MCard,
 	MSwitch,
@@ -111,7 +111,7 @@ import {
 	MCloud,
 	MWaterDroplet,
 	MPreLoading
-} from '@matrix-ui/components';
+} from 'marvels/src/';
 import { ref } from 'vue';
 
 const password = ref('');

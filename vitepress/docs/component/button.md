@@ -1,16 +1,14 @@
 # Button 按钮
 
-<MButton type="rainbow" style="margin-right: 10px">rainbow</MButton>
+<div style="display: flex; justify-content: space-around; margin: 40px;">
 
-<MButton type="rainbow" style="margin-right: 10px" :disabled="true">rainbow</MButton>
+<MButton type="rainbow">rainbow</MButton>
 
-<MButton type="rainbow-shadow" style="margin-right: 10px">rainbow-shadow</MButton>
+<MButton type="rainbow-shadow">rainbow-shadow</MButton>
 
-<MButton type="rainbow-shadow" style="margin-right: 10px" :disabled="true">rainbow-shadow</MButton>
+<MButton type="flow">flow</MButton>
 
-<MButton type="flow" style="margin-right: 10px">flow</MButton>
-
-<MButton type="flow" style="margin-right: 10px" :disabled="true">flow</MButton>
+</div>
 
 # API
 
@@ -19,7 +17,7 @@
 | 参数     | 说明         | 类型    | 可选值                          | 默认值  |
 | -------- | ------------ | ------- | ------------------------------- | ------- |
 | type     | 按钮类型     | string  | rainbow / rainbow-shadow / flow | default |
-| disabled | 是否禁用按钮 | boolean | -                               | false   |
+| disabled | 是否禁用按钮 | boolean | true / false                    | false   |
 
 ## Slots
 

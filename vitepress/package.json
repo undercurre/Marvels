@@ -1,5 +1,5 @@
 {
-	"name": "matrix-vitepress",
+	"name": "marvels-vitepress",
 	"version": "1.0.0",
 	"description": "",
 	"main": "index.js",
@@ -16,9 +16,9 @@
 	"license": "ISC",
 	"devDependencies": {
 		"vitepress": "1.0.0-rc.21",
-		"vue": "^3.2.36"
+		"vue": "^3.3.4"
 	},
 	"dependencies": {
-		"@matrix-ui/components": "workspace:^1.0.1"
+		"marvels": "workspace:^1.0.1"
 	}
 }

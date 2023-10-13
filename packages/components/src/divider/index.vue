@@ -1,14 +1,14 @@
 <template>
 	<div
-		class="matrix-divider"
+		class="marvels-divider"
 		:class="{
-			'matrix-divider-horizontal': type === 'horizontal',
-			'matrix-divider-vertical': type === 'vertical',
-			'matrix-divider-with-text': !!content
+			'marvels-divider-horizontal': type === 'horizontal',
+			'marvels-divider-vertical': type === 'vertical',
+			'marvels-divider-with-text': !!content
 		}"
 	>
 		<!-- 上面!!content的意图是把content转成boolean类型避免null和undefined -->
-		<div class="matrix-divider-inner-text" v-if="content">
+		<div class="marvels-divider-inner-text" v-if="content">
 			<slot>{{ content }}</slot>
 		</div>
 	</div>
@@ -31,7 +31,7 @@ export default defineComponent({
 </script>
 
 <style scoped>
-.matrix-divider {
+.marvels-divider {
 	position: relative;
 	height: 0;
 	font-size: 0;
@@ -41,7 +41,7 @@ export default defineComponent({
 	padding: 0;
 }
 
-.matrix-divider.matrix-divider-horizontal {
+.marvels-divider.marvels-divider-horizontal {
 	border-top-width: 1px;
 	border-left: none;
 	display: inline-block;
@@ -53,8 +53,8 @@ export default defineComponent({
 	vertical-align: middle;
 }
 
-.matrix-divider.matrix-divider-with-text::before,
-.matrix-divider.matrix-divider-with-text::after {
+.marvels-divider.marvels-divider-with-text::before,
+.marvels-divider.marvels-divider-with-text::after {
 	position: absolute;
 	top: 0px;
 	width: 40px;
@@ -68,19 +68,19 @@ export default defineComponent({
 	display: inline-block;
 }
 
-.matrix-divider.matrix-divider-with-text::before {
+.marvels-divider.marvels-divider-with-text::before {
 	left: 0;
 	content: '';
 	border-top: 2px solid #e8e8e8;
 }
 
-/* .matrix-divider.matrix-divider-with-text::after {
+/* .marvels-divider.marvels-divider-with-text::after {
     right: 0;
     content: '';
     border-top: 1px solid #e8e8e8;
   } */
 
-.matrix-divider.matrix-divider-vertical {
+.marvels-divider.marvels-divider-vertical {
 	border-top: none;
 	/* border-left: 1px solid #e8e8e8; */
 	border-left: 2px solid #e8e8e8;
@@ -91,15 +91,15 @@ export default defineComponent({
 	vertical-align: middle;
 }
 
-.matrix-divider.matrix-divider-vertical.matrix-divider-with-text {
+.marvels-divider.marvels-divider-vertical.marvels-divider-with-text {
 	display: inline-block;
 	position: relative;
 	padding: 16px 0;
 	margin: 0 8px;
 }
 
-.matrix-divider.matrix-divider-vertical.matrix-divider-with-text::before,
-.matrix-divider.matrix-divider-vertical.matrix-divider-with-text::after {
+.marvels-divider.marvels-divider-vertical.marvels-divider-with-text::before,
+.marvels-divider.marvels-divider-vertical.marvels-divider-with-text::after {
 	position: absolute;
 	left: -8px;
 	width: 12px;
@@ -113,19 +113,19 @@ export default defineComponent({
 	display: inline-block;
 }
 
-.matrix-divider.matrix-divider-vertical.matrix-divider-with-text::before {
+.marvels-divider.marvels-divider-vertical.marvels-divider-with-text::before {
 	top: 0;
 	content: '';
 	border-left: 2px solid #e8e8e8;
 }
 
-.matrix-divider.matrix-divider-vertical.matrix-divider-with-text::after {
+.marvels-divider.marvels-divider-vertical.marvels-divider-with-text::after {
 	bottom: 0;
 	content: '';
 	border-left: 2px solid #e8e8e8;
 }
 
-.matrix-divider-inner-text {
+.marvels-divider-inner-text {
 	display: inline-block;
 	left: 50%;
 	transform: translateX(-50%);

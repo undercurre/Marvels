@@ -10,7 +10,7 @@
 			<slot name="good"></slot>
 		</div>
 		<div class="content">
-			<h2>{{ title }}</h2>
+			<div class="title">{{ title }}</div>
 			<p>
 				{{ description }}
 			</p>
@@ -27,8 +27,6 @@ export default defineComponent({
 </script>
 
 <script lang="ts" setup>
-import { defineComponent } from 'vue';
-
 defineProps({
 	/**
 	 * @description card color.
@@ -158,6 +156,7 @@ const moreHandle = () => {
 
 .content {
 	position: absolute;
+	margin-top: 20px;
 	top: 0;
 	left: 20%;
 	padding: 20px 20px 20px 40px;
@@ -173,11 +172,12 @@ const moreHandle = () => {
 	left: 20px;
 }
 
-.content h2 {
+.content .title {
 	color: #fff;
 	text-transform: uppercase;
 	font-size: 2.5em;
 	line-height: 1em;
+	font-weight: 700;
 }
 
 .content p {

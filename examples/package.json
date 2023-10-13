@@ -1,5 +1,5 @@
 {
-	"name": "@matrix-ui/examples",
+	"name": "@marvels/examples",
 	"version": "1.0.0",
 	"description": "",
 	"main": "index.js",
@@ -12,7 +12,10 @@
 	"author": "",
 	"license": "ISC",
 	"devDependencies": {
-		"vite": "^4.4.11",
-		"@matrix-ui/components": "workspace:^1.0.1"
+		"vite": "^4.4.11"
+	},
+	"dependencies": {
+		"animate.css": "^4.1.1",
+		"marvels": "workspace:^1.0.1"
 	}
 }

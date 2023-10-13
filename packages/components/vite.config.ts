@@ -13,7 +13,7 @@ export default defineConfig({
 		//minify: false,
 		rollupOptions: {
 			//忽略打包vue文件
-			external: ['vue', 'gsap'],
+			external: ['vue', 'gsap', 'animate.css'],
 			input: ['index.ts'],
 			output: [
 				{
@@ -26,7 +26,7 @@ export default defineConfig({
 					preserveModulesRoot: './../components',
 					exports: 'named',
 					//配置打包根目录
-					dir: 'matrix-ui/es/components'
+					dir: 'es/components'
 				},
 				{
 					//打包格式
@@ -38,7 +38,7 @@ export default defineConfig({
 					preserveModules: true,
 					exports: 'named',
 					//配置打包根目录
-					dir: 'matrix-ui/lib/components'
+					dir: 'lib/components'
 				}
 			]
 		},
@@ -54,7 +54,7 @@ export default defineConfig({
 		}),
 		dts({
 			entryRoot: './src',
-			outDir: ['matrix-ui/es/components/src', 'matrix-ui/lib/components/src'],
+			outDir: ['es/components/src', 'lib/components/src'],
 			//指定使用的tsconfig.json为我们整个项目根目录下掉,如果不配置,你也可以在components下新建tsconfig.json
 			tsconfigPath: '../../tsconfig.json'
 		})

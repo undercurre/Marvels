@@ -48,9 +48,12 @@ export default defineComponent({
 </script>
 
 <script lang="ts" setup>
-import { ref, watch, defineComponent } from 'vue';
+import { ref, watch, defineComponent, onMounted } from 'vue';
 import './../../assets/font/iconfont.css';
-import './../../assets/font/iconfont.js';
+
+onMounted(() => {
+	import('./../../assets/font/iconfont.js');
+});
 
 let active = ref('sun');
 let daytime = ref('day-background-daytime');
