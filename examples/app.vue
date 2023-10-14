@@ -66,7 +66,7 @@
 
 		<MSwitch v-model:value="theme"></MSwitch>
 
-		<MLoading :is-loading="loading" text="Loading..."></MLoading>
+		<MLoading :is-loading="loading"></MLoading>
 
 		<MProgress :percentage="10"></MProgress>
 

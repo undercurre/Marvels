@@ -42,15 +42,43 @@ export default {
 					items: [
 						{
 							text: 'Basic 基础组件',
-							items: [{ text: 'Button 按钮', link: '/component/button' }]
+							items: [
+								{ text: 'Button 按钮', link: '/component/button' },
+								{ text: 'Icon 图标', link: '/component/icon' }
+							]
+						},
+						{
+							text: 'Form 表单组件',
+							items: [{ text: 'Input 输入框', link: '/component/input' }]
 						},
 						{
 							text: 'Data 数据展示',
-							items: [{ text: 'Card 卡片', link: '/component/card' }]
+							items: [
+								{ text: 'Card 卡片', link: '/component/card' },
+								{
+									text: 'Cloud 云',
+									link: '/component/cloud'
+								}
+							]
 						},
 						{
 							text: 'Feedback 反馈组件',
-							items: [{ text: 'Alert 提示', link: '/component/alert' }]
+							items: [
+								{ text: 'Alert 提示', link: '/component/alert' },
+								{
+									text: 'Loading 加载',
+									link: '/component/loading'
+								}
+							]
+						},
+						{
+							text: 'Others 其他',
+							items: [
+								{
+									text: 'Divider 分割线',
+									link: 'component/divider'
+								}
+							]
 						}
 					]
 				}

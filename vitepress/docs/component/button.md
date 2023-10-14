@@ -10,6 +10,14 @@
 
 </div>
 
+```vue
+<MButton type="rainbow">rainbow</MButton>
+
+<MButton type="rainbow-shadow">rainbow-shadow</MButton>
+
+<MButton type="flow">flow</MButton>
+```
+
 # API
 
 ## Props

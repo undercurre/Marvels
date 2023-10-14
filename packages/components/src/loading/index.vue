@@ -3,7 +3,6 @@
 		<div class="spinner" style="--spi-clr: #ff0">
 			<span></span>
 		</div>
-		<div class="text">{{ message }}</div>
 	</div>
 </template>
 
@@ -16,13 +15,6 @@ export default defineComponent({
 
 <script lang="ts" setup>
 const props = defineProps({
-	/**
-	 * @description loading message.
-	 */
-	message: {
-		type: String,
-		default: ''
-	},
 	/**
 	 * @description loading status.
 	 */
@@ -130,7 +122,8 @@ const props = defineProps({
 }
 
 .text {
-	margin-top: 10px;
+	font-size: 16px;
+	margin-top: 100px;
 	color: white;
 }
 </style>
