@@ -1,33 +1,10 @@
 <template>
 	<div>
-		<MButton type="rainbow" style="margin-right: 10px">rainbow</MButton>
+		<m-button></m-button>
 
-		<MButton type="rainbow" style="margin-right: 10px" :disabled="true">rainbow</MButton>
+		<m-input></m-input>
 
-		<MButton type="rainbow-shadow" style="margin-right: 10px">rainbow-shadow</MButton>
-
-		<MButton type="rainbow-shadow" style="margin-right: 10px" :disabled="true"
-			>rainbow-shadow</MButton
-		>
-		<MButton type="flow" style="margin-right: 10px">flow</MButton>
-
-		<MButton type="flow" style="margin-right: 10px" :disabled="true">flow</MButton>
-
-		<MInput
-			style="margin: 40px"
-			class="password"
-			v-model:value="password"
-			input-key="password"
-			label="密码"
-		></MInput>
-
-		<MIcon
-			name="material-symbols:10k-outline"
-			color="black"
-			size="40"
-			flip="Vertical"
-			:rotate="0"
-		></MIcon>
+		<m-icon></m-icon>
 
 		<MScrollbar :height="100">
 			<ul>
@@ -94,10 +71,7 @@
 
 <script lang="ts" setup>
 import {
-	MButton,
-	MInput,
 	MAlert,
-	MIcon,
 	MScrollbar,
 	MDivider,
 	MTab,
@@ -112,6 +86,9 @@ import {
 	MWaterDroplet,
 	MPreLoading
 } from 'marvels/src/';
+import MButton from './displayers/button.vue';
+import MInput from './displayers/input.vue';
+import MIcon from './displayers/icon.vue';
 import { ref } from 'vue';
 
 const password = ref('');

@@ -61,5 +61,8 @@
 		"commitizen": {
 			"path": "node_modules/cz-customizable"
 		}
+	},
+	"dependencies": {
+		"vue-router": "^4.3.0"
 	}
 }
