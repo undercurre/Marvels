@@ -20,7 +20,7 @@
 </template>
 
 <script lang="ts" setup>
-import { MCard } from 'marvels/src/';
+import { MCard } from 'marvels-plus/src/';
 
 function moreMethod() {
 	console.log(123);

@@ -7,5 +7,5 @@
 </template>
 
 <script lang="ts" setup>
-import { MAlert } from 'marvels/src/';
+import { MAlert } from 'marvels-plus/src/';
 </script>

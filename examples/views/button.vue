@@ -14,5 +14,5 @@
 </template>
 
 <script lang="ts" setup>
-import { MButton } from 'marvels/src/';
+import { MButton } from 'marvels-plus/src/';
 </script>

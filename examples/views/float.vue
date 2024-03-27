@@ -3,7 +3,7 @@
 </template>
 
 <script lang="ts" setup>
-import { MFloat } from 'marvels/src/';
+import { MFloat } from 'marvels-plus/src/';
 
 const menu: Array<{
 	iconName: string;

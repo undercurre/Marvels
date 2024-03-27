@@ -5,5 +5,5 @@
 </template>
 
 <script lang="ts" setup>
-import { MWaterDroplet } from 'marvels/src/';
+import { MWaterDroplet } from 'marvels-plus/src/';
 </script>

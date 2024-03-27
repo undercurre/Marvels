@@ -12,10 +12,12 @@
 	"author": "",
 	"license": "ISC",
 	"devDependencies": {
+		"unplugin-vue-router": "^0.8.5",
 		"vite": "^4.4.11"
 	},
 	"dependencies": {
 		"animate.css": "^4.1.1",
-		"marvels": "workspace:^1.0.1"
+		"marvels-plus": "workspace:^1.0.1",
+		"vue-router": "^4.3.0"
 	}
 }

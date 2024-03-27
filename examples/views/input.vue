@@ -9,7 +9,7 @@
 </template>
 
 <script lang="ts" setup>
-import { MInput } from 'marvels/src/';
+import { MInput } from 'marvels-plus/src/';
 import { ref } from 'vue';
 
 const password = ref('');

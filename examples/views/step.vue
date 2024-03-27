@@ -3,7 +3,7 @@
 </template>
 
 <script lang="ts" setup>
-import { MSteps } from 'marvels/src/';
+import { MSteps } from 'marvels-plus/src/';
 import { ref } from 'vue';
 
 const steps: Array<{

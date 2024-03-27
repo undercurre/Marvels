@@ -3,5 +3,5 @@
 </template>
 
 <script lang="ts" setup>
-import { MDivider } from 'marvels/src/';
+import { MDivider } from 'marvels-plus/src/';
 </script>

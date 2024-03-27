@@ -9,5 +9,5 @@
 </template>
 
 <script lang="ts" setup>
-import { MIcon } from 'marvels/src/';
+import { MIcon } from 'marvels-plus/src/';
 </script>

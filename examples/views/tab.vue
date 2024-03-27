@@ -3,7 +3,7 @@
 </template>
 
 <script lang="ts" setup>
-import { MTab } from 'marvels/src/';
+import { MTab } from 'marvels-plus/src/';
 
 const tabs = ['标签一', '标签二', '标签三', '标签四'];
 </script>

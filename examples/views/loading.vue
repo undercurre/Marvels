@@ -3,7 +3,7 @@
 </template>
 
 <script lang="ts" setup>
-import { MLoading } from 'marvels/src/';
+import { MLoading } from 'marvels-plus/src/';
 import { ref } from 'vue';
 
 const loading = ref(false);

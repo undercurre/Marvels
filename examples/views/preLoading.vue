@@ -7,5 +7,5 @@
 </template>
 
 <script lang="ts" setup>
-import { MPreLoading } from 'marvels/src/';
+import { MPreLoading } from 'marvels-plus/src/';
 </script>

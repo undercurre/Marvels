@@ -7,5 +7,5 @@
 </template>
 
 <script lang="ts" setup>
-import { MScrollbar } from 'marvels/src/';
+import { MScrollbar } from 'marvels-plus/src/';
 </script>

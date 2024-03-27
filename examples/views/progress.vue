@@ -3,5 +3,5 @@
 </template>
 
 <script lang="ts" setup>
-import { MProgress } from 'marvels/src/';
+import { MProgress } from 'marvels-plus/src/';
 </script>
