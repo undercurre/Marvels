@@ -1,6 +1,11 @@
 {
 	"extends": "@vue/tsconfig/tsconfig.dom.json",
-	"include": ["types/**/*.d.ts", "packages/components/**/*.ts", "examples/**/*.ts"],
+	"include": [
+		"types/**/*.d.ts",
+		"packages/components/**/*.ts",
+		"examples/**/*.ts",
+		"examples/typings/*.d.ts"
+	],
 	"exclude": [
 		"vitepress",
 		"node_modules",
@@ -16,7 +21,8 @@
 		"module": "ESNext",
 		"skipLibCheck": true,
 		"esModuleInterop": true,
-		"moduleResolution": "node",
-		"lib": ["esnext", "dom"]
+		"moduleResolution": "Bundler",
+		"lib": ["esnext", "dom"],
+		"types": ["unplugin-vue-router/client"]
 	}
 }

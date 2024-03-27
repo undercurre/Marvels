@@ -52,6 +52,7 @@
 		"stylelint-order": "^6.0.1",
 		"stylelint-scss": "^4.3.0",
 		"typescript": "^5.2.2",
+		"unplugin-vue-router": "^0.8.5",
 		"vue": "^3.3.4"
 	},
 	"config": {
@@ -63,6 +64,7 @@
 		}
 	},
 	"dependencies": {
+		"ts-node": "^10.9.2",
 		"vue-router": "^4.3.0"
 	}
 }
