@@ -1,9 +1,14 @@
 <template>
-	<div>
+	<div class="container">
 		<router-view></router-view>
 	</div>
 </template>
 
-<style></style>
+<style>
+.container {
+	width: 100vw;
+	height: 100vh;
+}
+</style>
 
 <script lang="ts" setup></script>

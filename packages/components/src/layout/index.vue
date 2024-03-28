@@ -1,18 +1,23 @@
 <template>
 	<div class="layout">
-		<div class="sidebar"></div>
-		<div class="content"></div>
+		<div class="sidebar">
+			<slot name="sidebar"></slot>
+		</div>
+		<div class="content">
+			<slot></slot>
+		</div>
 	</div>
 </template>
 
 <style lang="scss" scoped>
 .layout {
 	display: flex;
+	height: 100%;
 }
 
 .sidebar {
 	flex: 0 0 auto;
-	width: 200px;
+	width: 300px;
 	background-color: #f0f0f0;
 }
 
