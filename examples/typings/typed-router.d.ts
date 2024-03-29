@@ -28,6 +28,7 @@ declare module 'vue-router/auto-routes' {
     '/input': RouteRecordInfo<'/input', '/input', Record<never, never>, Record<never, never>>,
     '/layout': RouteRecordInfo<'/layout', '/layout', Record<never, never>, Record<never, never>>,
     '/loading': RouteRecordInfo<'/loading', '/loading', Record<never, never>, Record<never, never>>,
+    '/menu': RouteRecordInfo<'/menu', '/menu', Record<never, never>, Record<never, never>>,
     '/preLoading': RouteRecordInfo<'/preLoading', '/preLoading', Record<never, never>, Record<never, never>>,
     '/progress': RouteRecordInfo<'/progress', '/progress', Record<never, never>, Record<never, never>>,
     '/scroller': RouteRecordInfo<'/scroller', '/scroller', Record<never, never>, Record<never, never>>,
