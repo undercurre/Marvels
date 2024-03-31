@@ -3,6 +3,7 @@
 	"include": [
 		"types/**/*.d.ts",
 		"packages/components/**/*.ts",
+		"packages/components/**/*.d.ts",
 		"examples/**/*.ts",
 		"examples/typings/*.d.ts"
 	],

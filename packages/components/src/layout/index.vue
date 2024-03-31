@@ -33,7 +33,6 @@
 			justify-self: center;
 			align-items: center;
 			height: 70px;
-			margin-bottom: 30px;
 
 			.logo {
 				width: 35px;

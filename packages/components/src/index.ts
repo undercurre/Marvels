@@ -16,3 +16,4 @@ export * from './waterDroplet';
 export * from './preLoading';
 export * from './layout';
 export * from './menu';
+export * from './link';
