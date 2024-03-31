@@ -6,19 +6,7 @@
 					<div class="logo">{{ logo }}</div>
 					<h5>{{ headline }}</h5>
 				</div>
-				<ul class="menu">
-					<li v-for="m in menu" :key="m.theme">
-						<span class="theme">{{ m.theme.toUpperCase() }}</span>
-						<ul class="items">
-							<li class="item" v-for="i in m.items" :key="i.text">
-								<div class="icon_wrapper">
-									<m-icon size="24" :name="i.icon"></m-icon>
-								</div>
-								<span class="text">{{ i.text }}</span>
-							</li>
-						</ul>
-					</li>
-				</ul>
+				<m-menu :items="items" @select="menuSelect"></m-menu>
 			</div>
 		</div>
 		<div class="content">
@@ -38,9 +26,9 @@
 	width: 300px;
 	background-color: #0c1e35;
 	.sidebar_content {
-		padding: 20px;
 		color: #7d84ab;
 		.headline {
+			padding: 20px;
 			display: flex;
 			justify-self: center;
 			align-items: center;
@@ -121,13 +109,12 @@ ul {
 }
 </style>
 <script lang="ts">
-// 参考源码
-// https://codepen.io/azouaoui-med/pen/wpBadb
-import MIcon from './../icon/index.vue';
+import MMenu from './../menu/index.vue';
+import type { MenuItem } from './../menu/index.vue';
 
 type LayoutMenu = Array<{
 	theme: string;
-	items: Array<{
+	menu: Array<{
 		icon: string;
 		text: string;
 	}>;
@@ -136,7 +123,7 @@ type LayoutMenu = Array<{
 export default {
 	name: 'MLayout',
 	components: {
-		MIcon
+		MMenu
 	},
 	props: {
 		headline: {
@@ -177,11 +164,68 @@ export default {
 	},
 	computed: {
 		logo() {
-			return this.headline.slice(0, 1);
+			return this.headline.slice(0, 1).toUpperCase();
 		}
 	},
 	setup() {
-		return {};
+		const items = [
+			{
+				label: 'demo1',
+				icon: 'material-symbols:mp',
+				active: true,
+				children: [
+					{
+						label: 'demo5',
+						icon: 'material-symbols:5mp',
+						children: [
+							{
+								label: 'demo10',
+								icon: 'material-symbols:10mp'
+							},
+							{
+								label: 'demo11',
+								icon: 'material-symbols:11mp'
+							}
+						]
+					},
+					{
+						label: 'demo6',
+						icon: 'material-symbols:6mp'
+					},
+					{
+						label: 'demo7',
+						icon: 'material-symbols:7mp'
+					}
+				]
+			},
+			{
+				label: 'demo2',
+				icon: 'material-symbols:2mp'
+			},
+			{
+				label: 'demo3',
+				icon: 'material-symbols:3mp',
+				children: [
+					{
+						label: 'demo8',
+						icon: 'material-symbols:8mp'
+					},
+					{
+						label: 'demo9',
+						icon: 'material-symbols:9mp'
+					}
+				]
+			},
+			{
+				label: 'demo4',
+				icon: 'material-symbols:4mp'
+			}
+		];
+
+		function menuSelect(item: MenuItem) {
+			console.log('选择了', item);
+		}
+		return { menuSelect, items };
 	}
 };
 </script>

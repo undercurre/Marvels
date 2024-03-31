@@ -1,5 +1,7 @@
 <template>
-	<MLayout></MLayout>
+	<MLayout>
+		<h1>content</h1>
+	</MLayout>
 </template>
 
 <script lang="ts" setup>
