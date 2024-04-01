@@ -11,7 +11,7 @@
 		<transition name="fade">
 			<div class="dropdown-wrapper">
 				<ul v-show="isOpen" class="dropdown-list">
-					<li v-for="item in options" :key="item.value" @click="selectItem(item)">
+					<li v-for="item in optionsInner" :key="item.value" @click="selectItem(item)">
 						{{ item.label }}
 					</li>
 				</ul>
@@ -60,13 +60,14 @@ export default {
 		}
 	},
 	setup(props, { emit }) {
+		const optionsInner = ref<OptionsItem[]>([]);
 		const isOpen = ref(false);
 		const selectedItem = computed(() => {
 			console.log(
 				'已选中',
-				props.options.find((option) => option.value === props.value)
+				optionsInner.value.find((option) => option.value === props.value)
 			);
-			return props.options.find((option) => option.value === props.value);
+			return optionsInner.value.find((option) => option === props.value);
 		});
 
 		const toggleDropdown = () => {
@@ -74,17 +75,21 @@ export default {
 		};
 
 		const selectItem = (item) => {
-			console.log(item);
-			emit('update:value', item.value);
+			optionsInner.value.push(item);
+			emit('update:value', optionsInner.value);
 			// isOpen.value = false;
 		};
 
-		// watch(() => {
-		// 	props.
-		// })
+		watch(
+			() => props.options,
+			(newValue) => {
+				optionsInner.value = newValue;
+			}
+		);
 
 		return {
 			isOpen,
+			optionsInner,
 			selectedItem,
 			toggleDropdown,
 			selectItem
