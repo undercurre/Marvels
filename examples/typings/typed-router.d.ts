@@ -33,6 +33,7 @@ declare module 'vue-router/auto-routes' {
     '/preLoading': RouteRecordInfo<'/preLoading', '/preLoading', Record<never, never>, Record<never, never>>,
     '/progress': RouteRecordInfo<'/progress', '/progress', Record<never, never>, Record<never, never>>,
     '/scroller': RouteRecordInfo<'/scroller', '/scroller', Record<never, never>, Record<never, never>>,
+    '/select': RouteRecordInfo<'/select', '/select', Record<never, never>, Record<never, never>>,
     '/step': RouteRecordInfo<'/step', '/step', Record<never, never>, Record<never, never>>,
     '/switch': RouteRecordInfo<'/switch', '/switch', Record<never, never>, Record<never, never>>,
     '/tab': RouteRecordInfo<'/tab', '/tab', Record<never, never>, Record<never, never>>,
