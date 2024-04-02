@@ -5,13 +5,17 @@
 			@click="toggleDropdown"
 			:style="{ color: selectedItem ? '#000' : '#ccc' }"
 		>
-			{{ selectedItem ? selectedItem.label : placeholder }}
+			{{ value.length ? value.map((item) => item.label).join('/') : placeholder }}
 			<MIcon size="30" name="material-symbols:keyboard-arrow-down-rounded" color="#ccc"></MIcon>
 		</div>
 		<transition name="fade">
 			<div class="dropdown-wrapper">
 				<ul v-show="isOpen" class="dropdown-list">
-					<li v-for="item in options" :key="item.value" @click="selectItem(item)">
+					<li
+						v-for="item in options"
+						:key="item.value"
+						@click="selectItem({ item: item, level: level })"
+					>
 						{{ item.label }}
 					</li>
 				</ul>
@@ -30,7 +34,7 @@
 </template>
 
 <script lang="ts">
-import { ref, computed, watch } from 'vue';
+import { ref, computed, watch, provide } from 'vue';
 import { MIcon } from '../icon';
 import SelectList from './components/selectList.vue';
 
@@ -80,11 +84,13 @@ export default {
 			isOpen.value = !isOpen.value;
 		};
 
-		const selectItem = (item) => {
-			if (optionsInner.value[level]) {
-				optionsInner.value[level] = item;
+		const selectItem = (data) => {
+			if (optionsInner.value[data.level]) {
+				optionsInner.value[data.level] = data.item;
+				console.log('replace', optionsInner.value);
 			} else {
-				optionsInner.value.push(item);
+				optionsInner.value.push(data.item);
+				console.log('push', optionsInner);
 			}
 			emit('update:value', optionsInner.value);
 		};
@@ -96,6 +102,8 @@ export default {
 			},
 			{ immediate: true }
 		);
+
+		provide('optionsInner', optionsInner);
 
 		return {
 			isOpen,
