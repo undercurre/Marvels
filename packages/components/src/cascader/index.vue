@@ -11,7 +11,7 @@
 		<transition name="fade">
 			<div class="dropdown-wrapper">
 				<ul v-show="isOpen" class="dropdown-list">
-					<li v-for="item in optionsInner" :key="item.value" @click="selectItem(item)">
+					<li v-for="item in options" :key="item.value" @click="selectItem(item)">
 						{{ item.label }}
 					</li>
 				</ul>
@@ -19,7 +19,8 @@
 				<SelectList
 					:is-open="Boolean(selectedItem)"
 					class="select_list"
-					:value="value"
+					:value="optionsInner"
+					:level="level + 1"
 					@updateValue="selectItem"
 					:options="selectedItem ? selectedItem.children : []"
 				></SelectList>
@@ -61,13 +62,18 @@ export default {
 	},
 	setup(props, { emit }) {
 		const optionsInner = ref<OptionsItem[]>([]);
+		const level = 0;
 		const isOpen = ref(false);
 		const selectedItem = computed(() => {
-			console.log(
-				'已选中',
-				optionsInner.value.find((option) => option.value === props.value)
-			);
-			return optionsInner.value.find((option) => option === props.value);
+			if (optionsInner.value[level]) {
+				console.log(
+					'选中',
+					props.options.find((option) => option.value === optionsInner.value[level].value)
+				);
+				return props.options.find((option) => option.value === optionsInner.value[level].value);
+			} else {
+				return '';
+			}
 		});
 
 		const toggleDropdown = () => {
@@ -75,21 +81,26 @@ export default {
 		};
 
 		const selectItem = (item) => {
-			optionsInner.value.push(item);
+			if (optionsInner.value[level]) {
+				optionsInner.value[level] = item;
+			} else {
+				optionsInner.value.push(item);
+			}
 			emit('update:value', optionsInner.value);
-			// isOpen.value = false;
 		};
 
 		watch(
-			() => props.options,
+			() => props.value,
 			(newValue) => {
 				optionsInner.value = newValue;
-			}
+			},
+			{ immediate: true }
 		);
 
 		return {
 			isOpen,
 			optionsInner,
+			level,
 			selectedItem,
 			toggleDropdown,
 			selectItem

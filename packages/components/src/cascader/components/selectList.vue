@@ -8,6 +8,7 @@
 		<SelectList
 			v-if="selectedItem"
 			:is-open="Boolean(selectedItem)"
+			:level="level + 1"
 			:value="value"
 			class="select_list"
 			:options="selectedItem ? selectedItem.children : []"
@@ -16,7 +17,7 @@
 </template>
 
 <script lang="ts">
-import { computed, ref } from 'vue';
+import { computed } from 'vue';
 import type { OptionsItem } from '../index.vue';
 
 export default {
@@ -30,6 +31,10 @@ export default {
 			type: Array<OptionsItem>,
 			required: true
 		},
+		level: {
+			type: Number,
+			required: true
+		},
 		value: {
 			type: Array<OptionsItem>,
 			required: true
@@ -37,7 +42,15 @@ export default {
 	},
 	setup(props, { emit }) {
 		const selectedItem = computed(() => {
-			return props.options.find((option) => option.value === props.value);
+			if (props.value[props.level]) {
+				console.log(
+					'选中',
+					props.options.find((option) => option.value === props.value[props.level].value)
+				);
+				return props.options.find((option) => option.value === props.value[props.level].value);
+			} else {
+				return '';
+			}
 		});
 
 		const selectItem = (item) => {

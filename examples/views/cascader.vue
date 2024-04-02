@@ -9,6 +9,7 @@
 <script lang="ts" setup>
 import { MCascader } from 'marvels-plus/src/';
 import { ref } from 'vue';
+import type { OptionsItem } from '../../packages/components/src/cascader/index.vue';
 
 const options = [
 	{
@@ -288,7 +289,7 @@ const options = [
 		]
 	}
 ];
-const selected = ref('');
+const selected = ref<Array<OptionsItem>>([]);
 
 const handleChange = (value) => {
 	console.log(value);
