@@ -2,7 +2,7 @@
 	<div class="container">
 		<input type="checkbox" :id="id" :checked="isChecked" @change="toggleChecked" />
 		<label :for="id" @click="clickChecked">
-			<MIcon class="icon" name="material-symbols:library-add-check"></MIcon>
+			<MIcon class="icon" name="tabler:point-filled"></MIcon>
 		</label>
 		<span class="label">{{ label }}</span>
 	</div>
@@ -35,16 +35,16 @@ $inner-shadow: inset 0.2rem 0.2rem 0.5rem #d0d2d8, inset -0.2rem -0.2rem 0.5rem 
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		border-radius: 8px;
-		width: 35px;
-		height: 35px;
+		border-radius: 50%;
+		width: 36px;
+		height: 36px;
 
 		&:hover .icon {
 			color: #6d5dfc;
 		}
 
 		.icon {
-			font-size: 1.8rem;
+			font-size: 2.8rem;
 			font-weight: 700;
 			color: #9baacf;
 			transition: all 0.3s ease;
@@ -66,7 +66,7 @@ import { ref, watch } from 'vue';
 import MIcon from '../icon';
 
 export default {
-	name: 'MCheckbox',
+	name: 'MRadio',
 	components: {
 		MIcon
 	},
