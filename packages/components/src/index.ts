@@ -19,3 +19,4 @@ export * from './menu';
 export * from './link';
 export * from './select';
 export * from './cascader';
+export * from './checkbox';
