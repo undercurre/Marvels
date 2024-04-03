@@ -3,6 +3,7 @@
 		style="width: 30%; margin-left: 20px"
 		:options="options"
 		v-model:value="selected"
+		@change="handleChange"
 	></MCascader>
 </template>
 

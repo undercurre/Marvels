@@ -10,23 +10,24 @@
 		</div>
 		<transition name="fade">
 			<div class="dropdown-wrapper">
-				<ul v-show="isOpen" class="dropdown-list">
-					<li
-						v-for="item in options"
-						:key="item.value"
-						@click="selectItem({ item: item, level: level })"
-					>
-						{{ item.label }}
-					</li>
-				</ul>
-
+				<MScrollbar v-show="isOpen" width="100%" :height="198" class="dropdown-list_first">
+					<ul>
+						<li
+							v-for="item in options"
+							:key="item.value"
+							@click="selectItem({ item: item, level: level })"
+						>
+							{{ item.label }}
+						</li>
+					</ul>
+				</MScrollbar>
 				<SelectList
-					:is-open="Boolean(selectedItem)"
+					v-if="selectedItem.children?.length && isOpen"
+					:is-open="Boolean(selectedItem) && isOpen"
 					class="select_list"
-					:value="optionsInner"
 					:level="level + 1"
 					@updateValue="selectItem"
-					:options="selectedItem ? selectedItem.children : []"
+					:options="selectedItem.children ? selectedItem.children : []"
 				></SelectList>
 			</div>
 		</transition>
@@ -38,17 +39,20 @@ import { ref, computed, watch, provide } from 'vue';
 import { MIcon } from '../icon';
 import SelectList from './components/selectList.vue';
 
+import MScrollbar from '../scrollbar/index.vue';
+
 export type OptionsItem = {
 	label: string;
 	value: string;
-	children: OptionsItem[];
+	children?: OptionsItem[];
 };
 
 export default {
 	name: 'MCascader',
 	components: {
 		MIcon,
-		SelectList
+		SelectList,
+		MScrollbar
 	},
 	props: {
 		options: {
@@ -70,13 +74,24 @@ export default {
 		const isOpen = ref(false);
 		const selectedItem = computed(() => {
 			if (optionsInner.value[level]) {
-				console.log(
-					'选中',
-					props.options.find((option) => option.value === optionsInner.value[level].value)
+				let selected = props.options.find(
+					(option) => option.value === optionsInner.value[level].value
 				);
-				return props.options.find((option) => option.value === optionsInner.value[level].value);
+				if (selected) {
+					return selected;
+				} else {
+					return {
+						value: '',
+						label: '',
+						children: []
+					};
+				}
 			} else {
-				return '';
+				return {
+					value: '',
+					label: '',
+					children: []
+				};
 			}
 		});
 
@@ -87,12 +102,14 @@ export default {
 		const selectItem = (data) => {
 			if (optionsInner.value[data.level]) {
 				optionsInner.value[data.level] = data.item;
-				console.log('replace', optionsInner.value);
 			} else {
 				optionsInner.value.push(data.item);
-				console.log('push', optionsInner);
 			}
-			emit('update:value', optionsInner.value);
+			if (!data.item.children) {
+				toggleDropdown();
+				emit('update:value', optionsInner.value);
+				emit('change', optionsInner.value);
+			}
 		};
 
 		watch(
@@ -127,7 +144,6 @@ export default {
 	cursor: pointer;
 	padding: 10px;
 	border: 1px solid #ccc;
-	border-radius: 5px;
 	background-color: #fff;
 	display: flex;
 	justify-content: space-between;
@@ -135,6 +151,7 @@ export default {
 }
 
 .dropdown-wrapper {
+	width: 100%;
 	display: flex;
 	justify-content: center;
 	position: relative;
@@ -145,8 +162,9 @@ export default {
 	left: 100%;
 }
 
-.dropdown-list {
+.dropdown-list_first {
 	list-style: none;
+	height: 200px;
 	margin: 0;
 	padding: 0;
 	border: 1px solid #ccc;
@@ -157,13 +175,13 @@ export default {
 	z-index: 10;
 }
 
-.dropdown-list li {
+.dropdown-list_first li {
 	padding: 10px;
 	cursor: pointer;
 	transition: background-color 0.3s;
 }
 
-.dropdown-list li:hover {
+.dropdown-list_first li:hover {
 	background-color: #f0f0f0;
 }
 

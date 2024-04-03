@@ -2,8 +2,8 @@
 	<div
 		class="container"
 		:style="{
-			width: width + 'px',
-			height: height + 'px'
+			width: typeof width === 'number' ? width + 'px' : width,
+			height: typeof height === 'number' ? height + 'px' : height
 		}"
 	>
 		<slot></slot>
@@ -46,11 +46,11 @@ export default defineComponent({
 import { defineProps } from 'vue';
 defineProps({
 	width: {
-		type: Number,
+		type: [String, Number],
 		default: 100
 	},
 	height: {
-		type: Number,
+		type: [String, Number],
 		default: 100
 	}
 });
