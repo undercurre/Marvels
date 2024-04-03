@@ -1,22 +1,33 @@
 <template>
 	<div class="container">
-		<label :for="id">
-			<input type="checkbox" :id="id" :checked="isChecked" @change="toggleChecked" />
-			{{ label }}
+		<input type="checkbox" :id="id" :checked="isChecked" @change="toggleChecked" />
+		<label :for="id" @click="clickChecked">
 			<MIcon class="icon" name="material-symbols:library-add-check"></MIcon>
 		</label>
+		<span class="label">{{ label }}</span>
 	</div>
 </template>
 
 <style lang="scss" scoped>
-$shadow: 0.3rem 0.3rem 0.6rem var(--greyLight-2), -0.2rem -0.2rem 0.5rem var(--white);
-$inner-shadow: inset 0.2rem 0.2rem 0.5rem var(--greyLight-2),
-	inset -0.2rem -0.2rem 0.5rem var(--white);
+$shadow: 0.3rem 0.3rem 0.6rem #c8d0e7, -0.2rem -0.2rem 0.5rem #716f6f;
+$inner-shadow: inset 0.2rem 0.2rem 0.5rem #d0d2d8, inset -0.2rem -0.2rem 0.5rem #ffffff;
 
 .container {
-	width: 6rem;
+	width: 110px;
 	display: flex;
 	justify-content: center;
+	input {
+		display: none;
+		&:checked {
+			& ~ label {
+				box-shadow: $inner-shadow;
+				.icon {
+					color: #6d5dfc;
+				}
+			}
+		}
+	}
+
 	label {
 		box-shadow: $shadow;
 		cursor: pointer;
@@ -24,11 +35,11 @@ $inner-shadow: inset 0.2rem 0.2rem 0.5rem var(--greyLight-2),
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		border-radius: 0.5rem;
-		width: 2.8rem;
-		height: 2.8rem;
+		border-radius: 8px;
+		width: 35px;
+		height: 35px;
 
-		&:hover i {
+		&:hover .icon {
 			color: #6d5dfc;
 		}
 
@@ -36,17 +47,16 @@ $inner-shadow: inset 0.2rem 0.2rem 0.5rem var(--greyLight-2),
 			font-size: 1.8rem;
 			font-weight: 700;
 			color: #9baacf;
-			transition: 0.3s ease;
+			transition: all 0.3s ease;
 		}
 	}
 
-	& input:checked {
-		& ~ label {
-			box-shadow: $inner-shadow;
-			i {
-				color: #6d5dfc;
-			}
-		}
+	.label {
+		height: 35px;
+		font-size: 14px;
+		line-height: 35px;
+		margin-left: 10px;
+		font-weight: 700;
 	}
 }
 </style>
@@ -61,10 +71,6 @@ export default {
 		MIcon
 	},
 	props: {
-		id: {
-			type: String,
-			required: true
-		},
 		label: {
 			type: String,
 			required: true
@@ -82,6 +88,11 @@ export default {
 			emit('update:value', isChecked.value);
 		};
 
+		const clickChecked = () => {
+			isChecked.value = !isChecked.value;
+			emit('update:value', isChecked.value);
+		};
+
 		watch(
 			() => props.value,
 			(newValue) => {
@@ -91,6 +102,7 @@ export default {
 
 		return {
 			isChecked,
+			clickChecked,
 			toggleChecked
 		};
 	}

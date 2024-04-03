@@ -1,9 +1,16 @@
 <template>
-	<div>
+	<div class="container">
 		<m-checkbox id="my1" v-model="checked1" label="Option 1" />
 		<m-checkbox id="my2" v-model="checked2" label="Option 2" />
 	</div>
 </template>
+
+<style lang="scss" scoped>
+.container {
+	display: flex;
+	margin: 20px;
+}
+</style>
 
 <script lang="ts" setup>
 import { MCheckbox } from 'marvels-plus/src/';
