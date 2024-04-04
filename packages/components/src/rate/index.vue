@@ -17,13 +17,13 @@
 				</symbol>
 				<symbol id="icon-star-full" viewBox="0 0 12 12">
 					<path
-						fill="#5eb548"
+						fill="#ffd93b"
 						d="M12.01 4.37L8.3 7.06l1.42 4.37-3.71-2.7-3.71 2.7 1.42-4.37L0 4.37h4.59L6.01 0l1.42 4.37z"
 					/>
 				</symbol>
 				<symbol id="icon-star-empty" viewBox="0 0 24 24">
 					<path
-						fill="#5fbf44"
+						fill="#ffd93b"
 						d="M11.79 0L9 8.56H0l7.27 5.282L4.5 22.39l7.28-5.28 7.32 5.28-2.82-8.55 7.28-5.28h-9zm-.03 4.05l1.869 5.76h6.06l-4.9 3.561 1.871 5.76-4.89-3.56-4.9 3.56 1.87-5.77-4.89-3.56.029.01h6z"
 					></path>
 				</symbol>
@@ -49,33 +49,24 @@ import { ref, watch } from 'vue';
 
 export default {
 	name: 'MRate',
+	props: {
+		value: {
+			type: Number,
+			default: 0
+		}
+	},
 	setup(props, { emit }) {
 		const rate = ref(0);
-		const over = ref(0);
-
-		const convertValue = (value) => {
-			if (value >= length.value) {
-				value = length.value;
-			} else if (value < 0) {
-				value = 0;
-			}
-			return value;
-		};
-
-		const onOver = (index) => {
-			if (!readonly.value) over.value = index;
-		};
-
-		const onOut = () => {
-			if (!readonly.value) over.value = rate.value;
-		};
+		const length = ref(5);
+		const readonly = ref(false);
+		const required = ref(false);
+		const disabled = ref(false);
 
 		const setRate = (index) => {
 			if (readonly.value) return false;
-			emit('before-rate', rate.value);
 			rate.value = index;
-			emit('input', rate.value);
-			emit('after-rate', rate.value);
+			emit('update:value', rate.value);
+			emit('change', rate.value);
 		};
 
 		const isFilled = (index) => {
@@ -86,10 +77,6 @@ export default {
 			} else {
 				return 0;
 			}
-		};
-
-		const isEmpty = (index) => {
-			return index > over.value || (!value && !over.value);
 		};
 
 		const iconRef = (index) => {
@@ -106,18 +93,12 @@ export default {
 			}
 		};
 
-		// watch(
-		// 	() => props.value,
-		// 	() => {
-		// 		rate.value = convertValue(props.value);
-		// 		over.value = convertValue(props.value);
-		// 	}
-		// );
-
-		const length = ref(5);
-		const readonly = ref(false);
-		const required = ref(false);
-		const disabled = ref(false);
+		watch(
+			() => props.value,
+			(newValue) => {
+				rate.value = newValue;
+			}
+		);
 
 		return {
 			length,
