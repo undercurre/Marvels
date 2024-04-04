@@ -1,30 +1,30 @@
 <template>
-	<div class="cards-container" v-for="(computedClock, index) of computedRealClock" :key="index">
+	<div class="cards-container">
 		<div class="container">
 			<div class="card bg-up">
 				<div class="inner">
 					<div class="content">
-						{{ computedClock.nextFormat.slice(-2, -1) }}
+						{{ computedCount.nextFormat.slice(-2, -1) }}
 					</div>
 				</div>
 			</div>
 			<div class="card bg-down">
 				<div class="inner">
-					<div class="content">{{ computedClock.currentFormat.slice(-2, -1) }}</div>
+					<div class="content">{{ computedCount.currentFormat.slice(-2, -1) }}</div>
 				</div>
 			</div>
 			<div
 				class="flip card"
-				:style="computedClock.ifTens ? `transform: rotateX(-${computedClock.degree}deg);` : ''"
+				:style="computedCount.ifTens ? `transform: rotateX(${-1 * computedCount.degree}deg);` : ''"
 			>
 				<div class="front inner">
 					<div class="content">
-						{{ computedClock.currentFormat.slice(-2, -1) }}
+						{{ computedCount.currentFormat.slice(-2, -1) }}
 					</div>
 				</div>
 				<div class="back inner">
 					<div class="content">
-						{{ computedClock.nextFormat.slice(-2, -1) }}
+						{{ computedCount.nextFormat.slice(-2, -1) }}
 					</div>
 				</div>
 			</div>
@@ -33,24 +33,24 @@
 			<div class="card bg-up">
 				<div class="inner">
 					<div class="content">
-						{{ computedClock.nextFormat.slice(-1) }}
+						{{ computedCount.nextFormat.slice(-1) }}
 					</div>
 				</div>
 			</div>
 			<div class="card bg-down">
 				<div class="inner">
-					<div class="content">{{ computedClock.currentFormat.slice(-1) }}</div>
+					<div class="content">{{ computedCount.currentFormat.slice(-1) }}</div>
 				</div>
 			</div>
-			<div class="flip card" :style="`transform: rotateX(-${computedClock.degree}deg);`">
+			<div class="flip card" :style="`transform: rotateX(-${computedCount.degree}deg);`">
 				<div class="front inner">
 					<div class="content">
-						{{ computedClock.currentFormat.slice(-1) }}
+						{{ computedCount.currentFormat.slice(-1) }}
 					</div>
 				</div>
 				<div class="back inner">
 					<div class="content">
-						{{ computedClock.nextFormat.slice(-1) }}
+						{{ computedCount.nextFormat.slice(-1) }}
 					</div>
 				</div>
 			</div>
@@ -156,39 +156,77 @@
 </style>
 
 <script lang="ts">
-import { computed, ref } from 'vue';
+import { computed, ref, watch } from 'vue';
 
 export default {
-	name: 'MClock',
+	name: 'MInputNumber',
+	props: {
+		value: {
+			type: Number,
+			default: 0
+		},
+		min: {
+			type: Number,
+			default: 0
+		},
+		max: {
+			type: Number,
+			default: 99
+		}
+	},
 	setup(props, { emit }) {
-		const curTime = ref(new Date(0));
-		const realClock = ref([{ max: 59, current: 0, degree: 0 }]);
-		const computedRealClock = computed(() => {
-			return realClock.value.map((clock) => ({
-				...clock,
-				nextFormat: `0${clock.current + 1 > clock.max ? 0 : clock.current + 1}`,
-				currentFormat: `0${clock.current}`,
-				ifTens: Math.round(clock.current / 10) !== Math.round((clock.current + 1) / 10)
-			}));
+		const count = ref({ max: 99, current: 0, degree: 0, dir: 1 });
+		const computedCount = computed(() => {
+			return {
+				...count.value,
+				nextFormat: `0${count.value.current + 1 > count.value.max ? 0 : count.value.current + 1}`,
+				currentFormat: `0${count.value.current}`,
+				ifTens: Math.round(count.value.current / 10) !== Math.round((count.value.current + 1) / 10)
+			};
 		});
 		/**
 		 * index: 0 - hour, 1 - minute, 2 - second
 		 */
-		function filp(newVal, index = 2) {
-			const clock = realClock.value[index];
-			if (clock.degree < 180) {
-				clock.degree += 4;
+		function filp(newVal, index = 0) {
+			if (count.value.degree < 180) {
+				if (count.value.current < newVal) count.value.degree += 4;
+				if (count.value.current > newVal) count.value.degree -= 4;
 				requestAnimationFrame(() => {
 					filp(newVal, index);
 				});
 			} else {
-				clock.degree = 0;
-				clock.current = newVal;
+				count.value.degree = 0;
+				count.value.current = newVal;
 			}
 		}
 
+		function subtraction() {
+			if (computedCount.value.current - 1 < props.min) {
+				return;
+			}
+			filp(computedCount.value.current - 1);
+		}
+
+		function addition(point: number) {
+			console.log('加法');
+			if (computedCount.value.current + point > props.max) {
+				return;
+			}
+			filp(computedCount.value.current + point);
+		}
+
+		watch(
+			() => props.value,
+			(newValue) => {
+				count.value.current = newValue;
+			},
+			{ immediate: true }
+		);
+
 		return {
-			computedRealClock
+			computedCount,
+			subtraction,
+			addition
 		};
 	}
 };
