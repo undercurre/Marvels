@@ -24,6 +24,7 @@ declare module 'vue-router/auto-routes' {
     '/cascader': RouteRecordInfo<'/cascader', '/cascader', Record<never, never>, Record<never, never>>,
     '/checkbox': RouteRecordInfo<'/checkbox', '/checkbox', Record<never, never>, Record<never, never>>,
     '/cloud': RouteRecordInfo<'/cloud', '/cloud', Record<never, never>, Record<never, never>>,
+    '/colorPicker': RouteRecordInfo<'/colorPicker', '/colorPicker', Record<never, never>, Record<never, never>>,
     '/divider': RouteRecordInfo<'/divider', '/divider', Record<never, never>, Record<never, never>>,
     '/float': RouteRecordInfo<'/float', '/float', Record<never, never>, Record<never, never>>,
     '/icon': RouteRecordInfo<'/icon', '/icon', Record<never, never>, Record<never, never>>,

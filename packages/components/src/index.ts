@@ -21,3 +21,4 @@ export * from './select';
 export * from './cascader';
 export * from './checkbox';
 export * from './radio';
+export * from './colorPicker';
