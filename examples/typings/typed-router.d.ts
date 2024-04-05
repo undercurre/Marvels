@@ -46,6 +46,7 @@ declare module 'vue-router/auto-routes' {
     '/step': RouteRecordInfo<'/step', '/step', Record<never, never>, Record<never, never>>,
     '/switch': RouteRecordInfo<'/switch', '/switch', Record<never, never>, Record<never, never>>,
     '/tab': RouteRecordInfo<'/tab', '/tab', Record<never, never>, Record<never, never>>,
+    '/upload': RouteRecordInfo<'/upload', '/upload', Record<never, never>, Record<never, never>>,
     '/waterDroplet': RouteRecordInfo<'/waterDroplet', '/waterDroplet', Record<never, never>, Record<never, never>>,
   }
 }
