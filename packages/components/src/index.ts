@@ -26,3 +26,4 @@ export * from './calendar';
 export * from './clock';
 export * from './inputNumber';
 export * from './rate';
+export * from './slider';

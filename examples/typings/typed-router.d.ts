@@ -42,6 +42,7 @@ declare module 'vue-router/auto-routes' {
     '/rate': RouteRecordInfo<'/rate', '/rate', Record<never, never>, Record<never, never>>,
     '/scroller': RouteRecordInfo<'/scroller', '/scroller', Record<never, never>, Record<never, never>>,
     '/select': RouteRecordInfo<'/select', '/select', Record<never, never>, Record<never, never>>,
+    '/slider': RouteRecordInfo<'/slider', '/slider', Record<never, never>, Record<never, never>>,
     '/step': RouteRecordInfo<'/step', '/step', Record<never, never>, Record<never, never>>,
     '/switch': RouteRecordInfo<'/switch', '/switch', Record<never, never>, Record<never, never>>,
     '/tab': RouteRecordInfo<'/tab', '/tab', Record<never, never>, Record<never, never>>,
