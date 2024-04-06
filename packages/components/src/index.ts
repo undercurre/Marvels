@@ -28,3 +28,4 @@ export * from './inputNumber';
 export * from './rate';
 export * from './slider';
 export * from './upload';
+export * from './carousel';
