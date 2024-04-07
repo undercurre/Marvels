@@ -37,6 +37,7 @@ declare module 'vue-router/auto-routes' {
     '/link': RouteRecordInfo<'/link', '/link', Record<never, never>, Record<never, never>>,
     '/loading': RouteRecordInfo<'/loading', '/loading', Record<never, never>, Record<never, never>>,
     '/menu': RouteRecordInfo<'/menu', '/menu', Record<never, never>, Record<never, never>>,
+    '/pagination': RouteRecordInfo<'/pagination', '/pagination', Record<never, never>, Record<never, never>>,
     '/preLoading': RouteRecordInfo<'/preLoading', '/preLoading', Record<never, never>, Record<never, never>>,
     '/progress': RouteRecordInfo<'/progress', '/progress', Record<never, never>, Record<never, never>>,
     '/radio': RouteRecordInfo<'/radio', '/radio', Record<never, never>, Record<never, never>>,
