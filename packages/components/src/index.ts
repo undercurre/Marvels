@@ -31,3 +31,4 @@ export * from './upload';
 export * from './carousel';
 export * from './collapse';
 export * from './pagination';
+export * from './table';
