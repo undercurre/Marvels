@@ -1,34 +1,137 @@
-# Checkbox 多选框
+# Menu 菜单
 
-<div style="margin: 60px;">
-    <div class="container">
-    	<m-checkbox id="my1" v-model="checked1" label="Option 1" />
-    	<m-checkbox id="my2" v-model="checked2" label="Option 2" />
-    </div>
+<div>
+    <MMenu :items="items" @select="menuSelect"> </MMenu>
 </div>
 
 <script lang="ts" setup>
 import { ref } from 'vue';
 
-const checked1 = ref(true);
-const checked2 = ref(false);
+const items = [
+	{
+		label: 'demo1',
+		icon: 'material-symbols:mp',
+		active: true,
+		children: [
+			{
+				label: 'demo5',
+				icon: 'material-symbols:5mp',
+				children: [
+					{
+						label: 'demo10',
+						icon: 'material-symbols:10mp'
+					},
+					{
+						label: 'demo11',
+						icon: 'material-symbols:11mp'
+					}
+				]
+			},
+			{
+				label: 'demo6',
+				icon: 'material-symbols:6mp'
+			},
+			{
+				label: 'demo7',
+				icon: 'material-symbols:7mp'
+			}
+		]
+	},
+	{
+		label: 'demo2',
+		icon: 'material-symbols:2mp'
+	},
+	{
+		label: 'demo3',
+		icon: 'material-symbols:3mp',
+		children: [
+			{
+				label: 'demo8',
+				icon: 'material-symbols:8mp'
+			},
+			{
+				label: 'demo9',
+				icon: 'material-symbols:9mp'
+			}
+		]
+	},
+	{
+		label: 'demo4',
+		icon: 'material-symbols:4mp'
+	}
+];
+
+function menuSelect(item: MMenuItem) {
+	console.log('选择了', item);
+}
 </script>
 
 ```vue
 <template>
-	<div class="container">
-		<m-checkbox id="my1" v-model="checked1" label="Option 1" />
-		<m-checkbox id="my2" v-model="checked2" label="Option 2" />
-	</div>
+	<MMenu :items="items" @select="menuSelect"> </MMenu>
 </template>
 
 <script lang="ts" setup>
-import { MCheckbox } from 'marvels-plus/src/';
+import { MMenu } from 'marvels-plus/src/';
+import type { MMenuItem } from 'marvels-plus/src/';
 
-import { ref } from 'vue';
+const items = [
+	{
+		label: 'demo1',
+		icon: 'material-symbols:mp',
+		active: true,
+		children: [
+			{
+				label: 'demo5',
+				icon: 'material-symbols:5mp',
+				children: [
+					{
+						label: 'demo10',
+						icon: 'material-symbols:10mp'
+					},
+					{
+						label: 'demo11',
+						icon: 'material-symbols:11mp'
+					}
+				]
+			},
+			{
+				label: 'demo6',
+				icon: 'material-symbols:6mp'
+			},
+			{
+				label: 'demo7',
+				icon: 'material-symbols:7mp'
+			}
+		]
+	},
+	{
+		label: 'demo2',
+		icon: 'material-symbols:2mp'
+	},
+	{
+		label: 'demo3',
+		icon: 'material-symbols:3mp',
+		children: [
+			{
+				label: 'demo8',
+				icon: 'material-symbols:8mp'
+			},
+			{
+				label: 'demo9',
+				icon: 'material-symbols:9mp'
+			}
+		]
+	},
+	{
+		label: 'demo4',
+		icon: 'material-symbols:4mp'
+	}
+];
 
-const checked1 = ref(true);
-const checked2 = ref(false);
+function menuSelect(item: MMenuItem) {
+	console.log('选择了', item);
+}
 </script>
 ```
 
@@ -36,7 +139,12 @@ const checked2 = ref(false);
 
 ## Props
 
-| 参数  | 说明   | 类型             | 默认值 |
-| ----- | ------ | ---------------- | ------ |
-| value | 选项值 | [String, Number] | ——     |
-| label | 选项   | [String, Number] | ——     |
+| 参数  | 说明   | 类型   | 默认值 |
+| ----- | ------ | ------ | ------ |
+| items | 菜单树 | Object | ——     |
+
+## Event
+
+| 事件名 | 说明         | 回调参数 |
+| ------ | ------------ | -------- |
+| select | 菜单激活回调 | Object   |

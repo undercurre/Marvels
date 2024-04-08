@@ -1,5 +1,5 @@
 <template>
-	<div class="container" ref="sliderContainer">
+	<div class="slider_box" ref="sliderContainer">
 		<div class="range">
 			<input
 				name="range"
@@ -23,7 +23,7 @@
 import { onMounted, ref, watch } from 'vue';
 
 export default {
-	name: 'MSilder',
+	name: 'MSlider',
 	props: {
 		value: {
 			type: Number,
@@ -256,11 +256,12 @@ body {
 	font-weight: 300;
 }
 
-.container {
+.slider_box {
 	display: flex;
 	width: 100%;
 	min-width: 300px;
-	height: 100vh;
+	min-height: 200px;
+	margin-left: 20px;
 	justify-content: center;
 	align-items: center;
 	color: #333;

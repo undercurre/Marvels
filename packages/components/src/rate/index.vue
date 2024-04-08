@@ -97,6 +97,9 @@ export default {
 			() => props.value,
 			(newValue) => {
 				rate.value = newValue;
+			},
+			{
+				immediate: true
 			}
 		);
 

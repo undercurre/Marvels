@@ -106,7 +106,7 @@ export default defineComponent({
 });
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .menu {
 	color: #7d84ab;
 	min-height: 50px;

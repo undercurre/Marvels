@@ -46,7 +46,8 @@ export default {
 								{ text: 'Button 按钮', link: '/component/button' },
 								{ text: 'Icon 图标', link: '/component/icon' },
 								{ text: 'Layout 布局', link: '/component/layout' },
-								{ text: 'Link 链接', link: '/component/link' }
+								{ text: 'Link 链接', link: '/component/link' },
+								{ text: 'Scrollbar 滚动条', link: '/component/scrollbar' }
 							]
 						},
 						{
@@ -62,12 +63,32 @@ export default {
 									link: '/component/checkbox'
 								},
 								{
+									text: 'Radio 单选框',
+									link: '/component/radio'
+								},
+								{
 									text: 'ColorPicker 颜色选择器',
 									link: '/component/colorPicker'
 								},
 								{
 									text: 'InputNumber 计分器',
 									link: '/component/inputNumber'
+								},
+								{
+									text: 'Rate 评分',
+									link: '/component/rate'
+								},
+								{
+									text: 'Select 选择器',
+									link: '/component/select'
+								},
+								{
+									text: 'Slider 滑块',
+									link: '/component/slider'
+								},
+								{
+									text: 'Switch 开关',
+									link: '/component/switch'
 								}
 							]
 						},
@@ -94,6 +115,22 @@ export default {
 								{
 									text: 'Collapse 折叠面板',
 									link: '/component/collapse'
+								},
+								{
+									text: 'Pagination 分页',
+									link: '/component/pagination'
+								},
+								{
+									text: 'Progress 进度条',
+									link: '/component/progress'
+								},
+								{
+									text: 'Table 表格',
+									link: '/component/table'
+								},
+								{
+									text: 'WaterDroplet 水滴',
+									link: '/component/WaterDroplet'
 								}
 							]
 						},
@@ -113,6 +150,14 @@ export default {
 								{
 									text: 'Float 浮动按钮',
 									link: '/component/float'
+								},
+								{
+									text: 'Menu 菜单',
+									link: '/component/menu'
+								},
+								{
+									text: 'Tab 标签',
+									link: '/component/tab'
 								}
 							]
 						},
