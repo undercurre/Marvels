@@ -1,5 +1,5 @@
 <template>
-	<MFloat style="margin-left: 200px" :menu="menu"></MFloat>
+	<MFloat style="margin: 200px" :menu="menu"></MFloat>
 </template>
 
 <script lang="ts" setup>

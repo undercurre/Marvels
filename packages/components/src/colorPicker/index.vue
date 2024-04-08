@@ -36,6 +36,7 @@ type HSL = {
 };
 
 export default {
+	name: 'MColorPicker',
 	props: {
 		value: {
 			type: Object,

@@ -1,6 +1,6 @@
 import { createApp } from 'vue';
 import App from './app.vue';
-import 'marvels-plus/lib/components/style.css';
+import 'marvels-plus/es/components/style.css';
 import './assets/styles/reset.css';
 
 import router from './router';

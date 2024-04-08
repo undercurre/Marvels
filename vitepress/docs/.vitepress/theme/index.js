@@ -1,6 +1,6 @@
 import DefaultTheme from 'vitepress/theme';
 import MarvelsUI from 'marvels';
-import 'marvels/lib/components/style.css';
+import 'marvels/es/components/style.css';
 export default {
 	extends: DefaultTheme,
 	enhanceApp: async ({ app }) => {
