@@ -15,3 +15,4 @@ export default withInstall;
 // 1.编写组件
 // 2.构建插件：install属性实现注册入口，app.component()实现注册回调
 // 3.注册插件：使用 app.use() 注册插件
+// 这里是把每个组件都封装成一个Plugin（带有install方法去注册）
